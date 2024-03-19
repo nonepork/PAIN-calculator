@@ -1,0 +1,8 @@
+#    ╱|、     
+#  (˚w 。7    meow~
+#   |、˜〵          
+#  じしˍ,)ノ
+# Only cats and robots are allow, why are you looking at this, human?
+
+User-Agent: *
+Disallow: /
