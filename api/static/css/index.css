@@ -1,9 +1,6 @@
 body {
     margin: auto;
     padding: auto;
-    background-image: url('../bg.png');
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 h1 {
@@ -52,6 +49,42 @@ input[name="exam3"] {
 input[name="teachersmood"] {
     top: 55%;
     left: 60%;
+}
+
+span {
+    top: 30%;
+    left: 40%;
+    margin-left: -75;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  background-color: #666;
+  width: 0;
+  height: 2px;
+  border-radius: 2px;
+  transition: 0.5s;
+}
+
+label {
+    top: 30%;
+    left: 40%;
+  position: absolute;
+  color: #aaa;
+  left: 10px;
+  font-size: 20px;
+  bottom: 8px;
+  transition: all .2s;
+}
+
+input:focus ~ label, input:valid ~ label {
+  font-size: 16px;
+  bottom: 40px;
+  color: #666;
+  font-weight: bold;
+}
+
+input:focus ~ span, input:valid ~ span {
+  width: 150px;
 }
 
 button.submit {
