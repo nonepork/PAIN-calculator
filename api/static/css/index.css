@@ -1,5 +1,4 @@
 body {
-    background-color: #f3be30;
     margin: auto;
     padding: auto;
 }
@@ -11,47 +10,12 @@ div.title-text{
 }
 
 .title-text span {
-    color: white;
     font-family: "Noto Sans TC", sans-serif;
     text-align: center;
     font-size: 72px;
     display: inline-block;
 }
 
-.title-text span:nth-child(1) {
-    text-shadow: -4px 4px #d95d5d,
-                 -8px 8px #33383c;
-}
-
-.title-text span:nth-child(2) {
-    text-shadow: -4px 4px #db8525,
-                 -8px 8px #33383c;
-}
-
-.title-text span:nth-child(3) {
-    text-shadow: -4px 4px #e8c43c,
-                 -8px 8px #33383c;
-}
-
-.title-text span:nth-child(4) {
-    text-shadow: -4px 4px #bed649,
-                 -8px 8px #33383c;
-}
-
-.title-text span:nth-child(5) {
-    text-shadow: -4px 4px #9ecbdb,
-                 -8px 8px #33383c;
-}
-
-.title-text span:nth-child(6) {
-    text-shadow: -4px 4px #6399a5,
-                 -8px 8px #33383c;
-}
-
-.title-text span:nth-child(7) {
-    text-shadow: -4px 4px #c771a1,
-                 -8px 8px #33383c;
-}
 input {
     font-family: "Comfortaa", sans-serif;
     position: absolute;
@@ -99,7 +63,7 @@ input[name="teachersmood"] {
 label {
     font-family: "Noto Sans TC", sans-serif;
     position: absolute;
-    color: #aaa;
+    color: #aaaaaa;
     font-size: 20px;
     bottom: 8px;
     transition: all .2s;
@@ -109,7 +73,7 @@ span.exam1 {
     display: block;
     position: absolute;
     bottom: 0;
-    background-color: #666;
+    background-color: #666666;
     width: 0;
     height: 2px;
     border-radius: 2px;
@@ -129,7 +93,7 @@ span.exam2 {
     display: block;
     position: absolute;
     bottom: 0;
-    background-color: #666;
+    background-color: #666666;
     width: 0;
     height: 2px;
     border-radius: 2px;
@@ -149,7 +113,7 @@ span.exam3 {
     display: block;
     position: absolute;
     bottom: 0;
-    background-color: #666;
+    background-color: #666666;
     width: 0;
     height: 2px;
     border-radius: 2px;
@@ -169,7 +133,7 @@ span.teachersmood {
     display: block;
     position: absolute;
     bottom: 0;
-    background-color: #666;
+    background-color: #666666;
     width: 0;
     height: 2px;
     border-radius: 2px;
@@ -188,9 +152,9 @@ label.teachersmood {
 input[name="exam1"]:focus ~ label.exam1, input[name="exam1"]:valid ~ label.exam1 {
     font-size: 16px;
     bottom: 40px;
-    color: #666;
+    color: #666666;
     font-weight: bold;
-    transform: translateY(-27px);
+    transform: translateY(-30px);
 }
 
 input[name="exam1"]:focus ~ span.exam1, input[name="exam1"]:valid ~ span.exam1 {
@@ -200,9 +164,9 @@ input[name="exam1"]:focus ~ span.exam1, input[name="exam1"]:valid ~ span.exam1 {
 input[name="exam2"]:focus ~ label.exam2, input[name="exam2"]:valid ~ label.exam2 {
     font-size: 16px;
     bottom: 40px;
-    color: #666;
+    color: #666666;
     font-weight: bold;
-    transform: translateY(-27px);
+    transform: translateY(-30px);
 }
 
 input[name="exam2"]:focus ~ span.exam2, input[name="exam2"]:valid ~ span.exam2 {
@@ -212,9 +176,9 @@ input[name="exam2"]:focus ~ span.exam2, input[name="exam2"]:valid ~ span.exam2 {
 input[name="exam3"]:focus ~ label.exam3, input[name="exam3"]:valid ~ label.exam3 {
     font-size: 16px;
     bottom: 40px;
-    color: #666;
+    color: #666666;
     font-weight: bold;
-    transform: translateY(-27px);
+    transform: translateY(-30px);
 }
 
 input[name="exam3"]:focus ~ span.exam3, input[name="exam3"]:valid ~ span.exam3 {
@@ -224,9 +188,9 @@ input[name="exam3"]:focus ~ span.exam3, input[name="exam3"]:valid ~ span.exam3 {
 input[name="teachersmood"]:focus ~ label.teachersmood, input[name="teachersmood"]:valid ~ label.teachersmood {
     font-size: 16px;
     bottom: 40px;
-    color: #666;
+    color: #666666;
     font-weight: bold;
-    transform: translateY(-27px);
+    transform: translateY(-30px);
 }
 
 input[name="teachersmood"]:focus ~ span.teachersmood, input[name="teachersmood"]:valid ~ span.teachersmood {
@@ -244,7 +208,7 @@ button.submit {
     height: 50px;
     width: 90;
     font-size: 32px;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.1s ease-in-out;
     position: absolute;
     top: 70%;
     left: 50%;
@@ -252,7 +216,7 @@ button.submit {
 }
 
 button.submit:hover {
-    box-shadow: 1px 1px #c24448, 2px 2px #c24448, 3px 3px #c24448;
+    box-shadow: 2px 2px #c24448, 3px 3px #c24448, 4px 4px #c24448;
     transform: translateX(-3px);
 }
 
