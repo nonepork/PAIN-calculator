@@ -1,9 +1,29 @@
-document.addEventListener("DOMContentLoaded", function() {
-    var inputContainer = document.querySelector(".form-group");
+document.addEventListener('DOMContentLoaded', function() {
+    var body = document.querySelector('body');
+    var inputContainer = document.querySelector('.form-group');
+    var themeButton = document.querySelector('.switch-theme');
+    var themeButtonIcon = document.querySelector('.switch-theme__icon');
 
-    inputContainer.addEventListener("input", function(event) {
+    themeButton.addEventListener('click', function() {
+        body.classList.toggle('darkmode')
+        themeButtonIcon.classList.add('animated');
+
+        if (body.classList.contains('darkmode')) {
+            themeButtonIcon.classList.remove('fa-sun');
+            themeButtonIcon.classList.add('fa-moon');
+        } else {
+            themeButtonIcon.classList.remove('fa-moon');
+            themeButtonIcon.classList.add('fa-sun');
+        }
+
+        setTimeout( () => {
+            themeButtonIcon.classList.remove('animated');
+        }, 500)
+    });
+
+    inputContainer.addEventListener('input', function(event) {
         var target = event.target;
-        if (target.tagName === "INPUT") {
+        if (target.tagName === 'INPUT') {
             validate(target);
         }
     });

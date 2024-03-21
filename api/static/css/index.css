@@ -1,7 +1,12 @@
 body {
     margin: auto;
     padding: auto;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7f7f7;
 }
+
+/* ---------- Title text ---------- */
 
 div.title-text{
     position: absolute;
@@ -16,7 +21,69 @@ div.title-text{
     display: inline-block;
 }
 
-input {
+/* ---------- Theme button ---------- */
+/* https://github.com/devmode-on/Animated-Dark-Mode-Button */
+.switch-theme {
+    background-color: white;
+    width: 4em;
+    height: 3em;
+    border-radius: 10em;
+    padding: 0 0.5em;
+
+    box-shadow: inset 0 8px 60px rgba(0,0,0, .1),
+              inset 0 8px 8px rgba(0,0,0, .1),
+              inset 0 -4px 4px rgba(0,0,0, .1);
+
+    position: absolute;
+    top: 91%;
+    left: 92%;
+
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+}
+
+.switch-theme__indicator{
+    background-color: white;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+
+    position: absolute;
+
+    box-shadow: 0 8px 40px rgba(0,0,0, .2);
+
+    transition: transform .3s ease;
+}
+
+.switch-theme__icon-container{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.switch-theme__icon{
+    color: #FFDE59;
+    font-size: 1rem;
+}
+
+.switch-theme__icon.animated{
+    animation: spin 0.5s;
+}
+
+@keyframes spin{
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ---------- Input area ---------- */
+
+.form-group input {
     font-family: "Comfortaa", sans-serif;
     position: absolute;
     text-align: left;
@@ -30,7 +97,7 @@ input {
     padding-bottom: 10px;
     padding-left: 20px;
     background: none;
-    z-index: 5;
+    z-index: 1;
 }
 
 input:focus { outline: none; }
@@ -46,7 +113,7 @@ input[name="exam1"] {
 
 input[name="exam2"] {
     top: 30%;
-    left: 60%;
+    left: 61%;
 }
 
 input[name="exam3"] {
@@ -56,11 +123,11 @@ input[name="exam3"] {
 
 input[name="teachersmood"] {
     top: 55%;
-    left: 60%;
+    left: 61%;
 }
 
 /* https://charles098.tistory.com/199 */
-label {
+.form-group  label {
     font-family: "Noto Sans TC", sans-serif;
     position: absolute;
     color: #aaaaaa;
@@ -75,12 +142,13 @@ span.exam1 {
     bottom: 0;
     background-color: #666666;
     width: 0;
-    height: 2px;
+    height: 3px;
     border-radius: 2px;
     transition: 0.5s;
-    top: 32.2%; /* I'm utterly sorry xDDD */
+    top: 32.1%; /* I'm utterly sorry xDDD */
     left: 40%;
     margin-left: -86px;
+    z-index: 2;
 }
 
 label.exam1 {
@@ -95,17 +163,18 @@ span.exam2 {
     bottom: 0;
     background-color: #666666;
     width: 0;
-    height: 2px;
+    height: 3px;
     border-radius: 2px;
     transition: 0.5s;
-    top: 32.2%;
-    left: 60%;
+    top: 32.1%;
+    left: 61%;
     margin-left: -86px;
+    z-index: 2;
 }
 
 label.exam2 {
     top: 28%;
-    left: 60%;
+    left: 61%;
     margin-left: -86px;
 }
 
@@ -115,12 +184,13 @@ span.exam3 {
     bottom: 0;
     background-color: #666666;
     width: 0;
-    height: 2px;
+    height: 3px;
     border-radius: 2px;
     transition: 0.5s;
-    top: 57.2%;
+    top: 57.1%;
     left: 40%;
     margin-left: -86px;
+    z-index: 2;
 }
 
 label.exam3 {
@@ -135,17 +205,18 @@ span.teachersmood {
     bottom: 0;
     background-color: #666666;
     width: 0;
-    height: 2px;
+    height: 3px;
     border-radius: 2px;
     transition: 0.5s;
-    top: 57.2%;
-    left: 60%;
+    top: 57.1%;
+    left: 61%;
     margin-left: -86px;
+    z-index: 2;
 }
 
 label.teachersmood {
     top: 53.2%;
-    left: 60%;
+    left: 61%;
     margin-left: -86px;
 }
 
@@ -154,7 +225,7 @@ input[name="exam1"]:focus ~ label.exam1, input[name="exam1"]:valid ~ label.exam1
     bottom: 40px;
     color: #666666;
     font-weight: bold;
-    transform: translateY(-30px);
+    transform: translateY(-32px);
 }
 
 input[name="exam1"]:focus ~ span.exam1, input[name="exam1"]:valid ~ span.exam1 {
@@ -166,7 +237,7 @@ input[name="exam2"]:focus ~ label.exam2, input[name="exam2"]:valid ~ label.exam2
     bottom: 40px;
     color: #666666;
     font-weight: bold;
-    transform: translateY(-30px);
+    transform: translateY(-32px);
 }
 
 input[name="exam2"]:focus ~ span.exam2, input[name="exam2"]:valid ~ span.exam2 {
@@ -178,7 +249,7 @@ input[name="exam3"]:focus ~ label.exam3, input[name="exam3"]:valid ~ label.exam3
     bottom: 40px;
     color: #666666;
     font-weight: bold;
-    transform: translateY(-30px);
+    transform: translateY(-32px);
 }
 
 input[name="exam3"]:focus ~ span.exam3, input[name="exam3"]:valid ~ span.exam3 {
@@ -190,18 +261,18 @@ input[name="teachersmood"]:focus ~ label.teachersmood, input[name="teachersmood"
     bottom: 40px;
     color: #666666;
     font-weight: bold;
-    transform: translateY(-30px);
+    transform: translateY(-32px);
 }
 
 input[name="teachersmood"]:focus ~ span.teachersmood, input[name="teachersmood"]:valid ~ span.teachersmood {
     width: 172px;
 }
 
-button.submit {
+.form-group button.submit {
     font-family: "Noto Sans TC", sans-serif;
     text-align: center;
     color: #000000;
-    border: 0px solid #c73337;
+    border: 1px solid #c73337;
     border-radius: 0px;
     padding: 0 15px;
     cursor: pointer;
@@ -215,12 +286,89 @@ button.submit {
     margin-left: -45px; /* Same here, what in the world */
 }
 
-button.submit:hover {
+.form-group button.submit:hover {
     box-shadow: 2px 2px #c24448, 3px 3px #c24448, 4px 4px #c24448;
     transform: translateX(-3px);
 }
 
-button.submit:active {
+.form-group button.submit:active {
     box-shadow: 0px 0px #c24448, 0px 0px #c24448, 0px 0px #c24448;
     transform: translateY(4px);
-} 
+}
+
+/* ---------- Dark mode ---------- */
+
+body.darkmode {
+    background-color: #2b2b2b;
+}
+
+.darkmode div.title-text {
+    color: white;
+}
+
+.darkmode .switch-theme{
+    box-shadow: inset 0 8px 60px rgba(0,0,0, .3),
+                inset 8px 0 8px rgba(0,0,0, .3),
+                inset 0 -4px 4px rgba(0,0,0, .3);
+}
+
+.darkmode .switch-theme__indicator{
+    transform: translateX(2em);
+    background-color: #2b2b2b;
+    box-shadow: 0 8px 40px rgba(0,0,0, .3);
+}
+
+.darkmode .switch-theme__icon{
+    color: white;
+}
+
+.darkmode input {
+    color: white;
+}
+
+.darkmode input[name="exam1"]:focus ~ label.exam1, .darkmode input[name="exam1"]:valid ~ label.exam1 {
+    font-size: 16px;
+    bottom: 40px;
+    color: white;
+    font-weight: bold;
+    transform: translateY(-32px);
+}
+
+.darkmode input[name="exam2"]:focus ~ label.exam2, .darkmode input[name="exam2"]:valid ~ label.exam2 {
+    font-size: 16px;
+    bottom: 40px;
+    color: white;
+    font-weight: bold;
+    transform: translateY(-32px);
+}
+
+.darkmode input[name="exam3"]:focus ~ label.exam3, .darkmode input[name="exam3"]:valid ~ label.exam3 {
+    font-size: 16px;
+    bottom: 40px;
+    color: white;
+    font-weight: bold;
+    transform: translateY(-32px);
+}
+
+.darkmode input[name="teachersmood"]:focus ~ label.teachersmood, .darkmode input[name="teachersmood"]:valid ~ label.teachersmood {
+    font-size: 16px;
+    bottom: 40px;
+    color: white;
+    font-weight: bold;
+    transform: translateY(-32px);
+}
+
+.darkmode span.exam1,
+.darkmode span.exam2,
+.darkmode span.exam3,
+.darkmode span.teachersmood {
+    background-color: white;
+}
+
+.darkmode label {
+    color: #d4d4d4;
+}
+
+.darkmode button.submit {
+    background-color: #f9f9f9;
+}
