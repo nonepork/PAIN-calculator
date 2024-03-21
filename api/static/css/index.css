@@ -10,6 +10,7 @@ body {
 
 div.title-text{
     position: absolute;
+    top: 5%;
     left: 50%;
     margin-left: -252px; /* Calculated by font size only */
 }

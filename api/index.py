@@ -23,13 +23,13 @@ def home():
         e3 = float(request.form["exam3"])
         life_is_not_fair = float(request.form["teachersmood"])
         if calculate(e1, e2, e3, life_is_not_fair) >= 60:
-            return_string = "score:" + str(calculate(e1, e2, e3, life_is_not_fair)) + ", nice"
+            return_string = "score:" + str(calculate(e1, e2, e3, life_is_not_fair)) + ", 順利通過"
             return return_string
         elif 60 > calculate(e1, e2, e3, life_is_not_fair) and calculate(e1, e2, e3, life_is_not_fair) >= 40:
-            return_string = "score:" + str(calculate(e1, e2, e3, life_is_not_fair)) + ", 笑死 去補考"
+            return_string = "score:" + str(calculate(e1, e2, e3, life_is_not_fair)) + ", 去補考"
             return return_string 
         else:
-            return_string = "score:" + str(calculate(e1, e2, e3, life_is_not_fair)) + ", 笑死 你沒摟"
+            return_string = "score:" + str(calculate(e1, e2, e3, life_is_not_fair)) + ", 你沒了, 重修舊好"
             return return_string 
     else:
         return render_template("index.html")
