@@ -272,7 +272,8 @@ input[name="teachersmood"]:focus ~ span.teachersmood, input[name="teachersmood"]
     font-family: "Noto Sans TC", sans-serif;
     text-align: center;
     color: #000000;
-    border: 1px solid #c73337;
+    background-color: #ececec;
+    border: 0px solid #c73337;
     border-radius: 0px;
     padding: 0 15px;
     cursor: pointer;
