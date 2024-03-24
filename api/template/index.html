@@ -54,5 +54,11 @@
             <!-- onkeydown="return event.keyCode !== 69" basically stands for return all keyinput that isn't "e" -->
         </div>
     </form>
+    {% if result %}
+    <div class="result">
+        <h2>分數:</h2>
+        <span>{{ result }}</span>
+    </div>
+    {% endif %}
 </body>
 </html>
