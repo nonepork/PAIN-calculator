@@ -313,9 +313,18 @@ input[name="teachersmood"]:valid ~ span.teachersmood {
 div.result {
     text-align: center;
     position: absolute;
-    top: 80%;
+    top: 75%;
     left: 50%;
     transform: translateX(-50%);
+    font-family: "Noto Sans TC", sans-serif;
+}
+
+div.result h2 {
+    font-size: 32px;
+}
+
+div.result span {
+    font-size: 28px;
 }
 
 /* ---------- Dark mode ---------- */
@@ -397,4 +406,8 @@ body.darkmode {
 
 .darkmode button.submit {
     background-color: #f9f9f9;
+}
+
+.darkmode div.result {
+    color: white;
 }

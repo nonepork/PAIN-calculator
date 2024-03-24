@@ -27,13 +27,13 @@ def home():
         if result % 1 == 0:
             result = int(result)
         if result >= 60:
-            return_string = str(result) + ", 順利通過"
+            return_string = str(result) + ", Pass"
             return render_template("index.html", result=return_string)
         elif 60 > result and result >= 40:
-            return_string = str(result) + ", 去補考"
+            return_string = str(result) + ", 補考Time"
             return render_template("index.html", result=return_string)
         else:
-            return_string = str(result) + ", 你沒了, 重修舊好"
+            return_string = str(result) + ", 重修舊好"
             return render_template("index.html", result=return_string)
     else:
         return render_template("index.html")
