@@ -82,6 +82,14 @@ div.title-text{
     }
 }
 
+.switch-theme span {
+    font-family: "Comfortaa", sans-serif;
+    font-size: 20px;
+    font-weight: Bold;
+    position: relative;
+    left: -90px;
+}
+
 /* ---------- Input area ---------- */
 
 .form-group input {
@@ -350,6 +358,10 @@ body.darkmode {
 }
 
 .darkmode .switch-theme__icon{
+    color: white;
+}
+
+.darkmode .switch-theme span {
     color: white;
 }
 
