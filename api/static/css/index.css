@@ -402,19 +402,38 @@ body.darkmode {
     color: white;
 }
 
-.darkmode .switch-theme{
+.darkmode .switch-pray {
     box-shadow: inset 0 8px 60px rgba(0,0,0, .3),
                 inset 8px 0 8px rgba(0,0,0, .3),
                 inset 0 -4px 4px rgba(0,0,0, .3);
 }
 
-.darkmode .switch-theme__indicator{
+.darkmode .switch-pray__indicator {
+    background-color: #2b2b2b;
+    box-shadow: 0 8px 40px rgba(0,0,0, .3);
+}
+
+.darkmode .switch-pray__icon {
+    color: white;
+}
+
+.darkmode .switch-pray span {
+    color: white;
+}
+
+.darkmode .switch-theme {
+    box-shadow: inset 0 8px 60px rgba(0,0,0, .3),
+                inset 8px 0 8px rgba(0,0,0, .3),
+                inset 0 -4px 4px rgba(0,0,0, .3);
+}
+
+.darkmode .switch-theme__indicator {
     transform: translateX(2em);
     background-color: #2b2b2b;
     box-shadow: 0 8px 40px rgba(0,0,0, .3);
 }
 
-.darkmode .switch-theme__icon{
+.darkmode .switch-theme__icon {
     color: white;
 }
 
