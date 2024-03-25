@@ -4,14 +4,14 @@ document.addEventListener('DOMContentLoaded', function() {
     var themeButton = document.querySelector('.switch-theme');
     var themeButtonIcon = document.querySelector('.switch-theme__icon');
 
-    function storeTheme(value){
+    function storeTheme(value) {
         localStorage.setItem('darkmode', value);
     }
 
-    function loadTheme(){
+    function loadTheme() {
         const darkmode = localStorage.getItem('darkmode');
 
-        if(!darkmode){
+        if(!darkmode) {
             storeTheme(false);
             themeButtonIcon.classList.add('fa-sun');
         } else if( darkmode == 'true') {
