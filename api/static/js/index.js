@@ -4,6 +4,28 @@ document.addEventListener('DOMContentLoaded', function() {
     var themeButton = document.querySelector('.switch-theme');
     var themeButtonIcon = document.querySelector('.switch-theme__icon');
 
+    function storeTheme(value){
+        localStorage.setItem('darkmode', value);
+    }
+
+    function loadTheme(){
+        const darkmode = localStorage.getItem('darkmode');
+
+        if(!darkmode){
+            storeTheme(false);
+            themeButtonIcon.classList.add('fa-sun');
+        } else if( darkmode == 'true') {
+            body.classList.add('darkmode');
+            themeButtonIcon.classList.remove('fa-sun');
+            themeButtonIcon.classList.add('fa-moon');
+        } else if(darkmode == 'false') {
+            themeButtonIcon.classList.remove('fa-moon');
+            themeButtonIcon.classList.add('fa-sun');
+        }
+    }
+
+    loadTheme();
+
     themeButton.addEventListener('click', function() {
         body.classList.toggle('darkmode')
         themeButtonIcon.classList.add('animated');
@@ -11,9 +33,11 @@ document.addEventListener('DOMContentLoaded', function() {
         if (body.classList.contains('darkmode')) {
             themeButtonIcon.classList.remove('fa-sun');
             themeButtonIcon.classList.add('fa-moon');
+            storeTheme(true);
         } else {
             themeButtonIcon.classList.remove('fa-moon');
             themeButtonIcon.classList.add('fa-sun');
+            storeTheme(false);
         }
 
         setTimeout( () => {
