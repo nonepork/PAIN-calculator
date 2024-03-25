@@ -1,8 +1,26 @@
 document.addEventListener('DOMContentLoaded', function() {
     var body = document.querySelector('body');
     var inputContainer = document.querySelector('.form-group');
+    var prayButton = document.querySelector('.switch-pray');
+    var prayButtonIcon = document.querySelector('.switch-pray__icon');
+    var prayButtonIndicator = document.querySelector('.switch-pray__indicator');
     var themeButton = document.querySelector('.switch-theme');
     var themeButtonIcon = document.querySelector('.switch-theme__icon');
+    var prayToggled = false;
+
+    prayButton.addEventListener('click', function() {
+        if (!prayToggled) {
+            prayButtonIcon.classList.remove('fa-power-off');
+            prayButtonIcon.classList.add('fa-hands-praying');
+            prayToggled = true;
+            prayButtonIndicator.classList.add('animated');
+        } else {
+            prayButtonIcon.classList.remove('fa-hands-praying');
+            prayButtonIcon.classList.add('fa-power-off');
+            prayToggled = false;
+            prayButtonIndicator.classList.remove('animated');
+        }
+    });
 
     function storeTheme(value) {
         localStorage.setItem('darkmode', value);
