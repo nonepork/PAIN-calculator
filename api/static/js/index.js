@@ -8,37 +8,39 @@ document.addEventListener('DOMContentLoaded', function() {
     var themeButtonIcon = document.querySelector('.switch-theme__icon');
     var prayToggled = false;
 
-    prayButton.addEventListener('click', function() {
-        if (!prayToggled) {
-            prayButtonIcon.classList.remove('fa-power-off');
-            prayButtonIcon.classList.add('fa-hands-praying');
-            prayToggled = true;
-            prayButtonIndicator.classList.add('animated');
-        } else {
-            prayButtonIcon.classList.remove('fa-hands-praying');
-            prayButtonIcon.classList.add('fa-power-off');
-            prayToggled = false;
-            prayButtonIndicator.classList.remove('animated');
-        }
-    });
-
-    function storeTheme(value) {
-        localStorage.setItem('darkmode', value);
-    }
-
     function loadTheme() {
         const darkmode = localStorage.getItem('darkmode');
 
-        if(!darkmode) {
-            storeTheme(false);
+        if (!darkmode) {
+            localStorage.setItem('darkmode', false);
             themeButtonIcon.classList.add('fa-sun');
-        } else if( darkmode == 'true') {
+        } else if (darkmode == 'true') {
             body.classList.add('darkmode');
             themeButtonIcon.classList.remove('fa-sun');
             themeButtonIcon.classList.add('fa-moon');
-        } else if(darkmode == 'false') {
+        } else if (darkmode == 'false') {
             themeButtonIcon.classList.remove('fa-moon');
             themeButtonIcon.classList.add('fa-sun');
+        }
+    }
+
+    function loadPray() {
+        const praymode = localStorage.getItem('praymode');
+
+        if (!praymode) {
+            localStorage.setItem('praymode', false);
+            prayButtonIcon.classList.add('fa-power-off');
+            prayButtonIndicator.classList.remove('animated');
+        } else if (praymode == 'true') {
+            body.classList.add('praymode');
+            prayButtonIcon.classList.remove('fa-power-off');
+            prayButtonIcon.classList.add('fa-hands-praying');
+            prayButtonIndicator.classList.add('animated');
+            prayToggled = true;
+        } else if (praymode == 'false') {
+            prayButtonIcon.classList.remove('fa-hands-praying');
+            prayButtonIcon.classList.add('fa-power-off');
+            prayButtonIndicator.classList.remove('animated');
         }
     }
 
@@ -51,17 +53,37 @@ document.addEventListener('DOMContentLoaded', function() {
         if (body.classList.contains('darkmode')) {
             themeButtonIcon.classList.remove('fa-sun');
             themeButtonIcon.classList.add('fa-moon');
-            storeTheme(true);
+            localStorage.setItem('darkmode', true);
         } else {
             themeButtonIcon.classList.remove('fa-moon');
             themeButtonIcon.classList.add('fa-sun');
-            storeTheme(false);
+            localStorage.setItem('darkmode', false);
         }
 
         setTimeout( () => {
             themeButtonIcon.classList.remove('animated');
         }, 500)
     });
+
+    loadPray()
+
+    prayButton.addEventListener('click', function() {
+        if (!prayToggled) {
+            prayButtonIcon.classList.remove('fa-power-off');
+            prayButtonIcon.classList.add('fa-hands-praying');
+            prayToggled = true;
+            prayButtonIndicator.classList.add('animated');
+            localStorage.setItem('praymode', true);
+        } else {
+            prayButtonIcon.classList.remove('fa-hands-praying');
+            prayButtonIcon.classList.add('fa-power-off');
+            prayToggled = false;
+            prayButtonIndicator.classList.remove('animated');
+            localStorage.setItem('praymode', false);
+        }
+    });
+
+    // Input
 
     inputContainer.addEventListener('input', function(event) {
         var target = event.target;
