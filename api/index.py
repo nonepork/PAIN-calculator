@@ -4,7 +4,7 @@ app = Flask(__name__, static_folder='static', template_folder='template')
 
 # TODO:
 # Make css prettier
-# fix span text also counts as a part of button lmao
+# fix span text also counts as a part of button
 # Add choose your 聖物
 # Make score announcing more funnier
 
