@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var prayButtonIndicator = document.querySelector('.switch-pray__indicator');
     var themeButton = document.querySelector('.switch-theme');
     var themeButtonIcon = document.querySelector('.switch-theme__icon');
-    var prayToggled = false;
+    var prayToggled = false; // TODO: remove dis and use localStorage
 
     function loadTheme() {
         const darkmode = localStorage.getItem('darkmode');
