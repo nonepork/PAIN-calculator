@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
     var prayButtonIndicator = document.querySelector('.switch-pray__indicator');
     var themeButton = document.querySelector('.switch-theme');
     var themeButtonIcon = document.querySelector('.switch-theme__icon');
-    var prayToggled = false; // TODO: remove dis and use localStorage
 
     function loadTheme() {
         const darkmode = localStorage.getItem('darkmode');
@@ -36,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function() {
             prayButtonIcon.classList.remove('fa-power-off');
             prayButtonIcon.classList.add('fa-hands-praying');
             prayButtonIndicator.classList.add('animated');
-            prayToggled = true;
         } else if (praymode == 'false') {
             prayButtonIcon.classList.remove('fa-hands-praying');
             prayButtonIcon.classList.add('fa-power-off');
@@ -68,16 +66,16 @@ document.addEventListener('DOMContentLoaded', function() {
     loadPray()
 
     prayButton.addEventListener('click', function() {
-        if (!prayToggled) {
+        var prayToggled = localStorage.getItem('praymode');
+
+        if (prayToggled == 'false') {
             prayButtonIcon.classList.remove('fa-power-off');
             prayButtonIcon.classList.add('fa-hands-praying');
-            prayToggled = true;
             prayButtonIndicator.classList.add('animated');
             localStorage.setItem('praymode', true);
         } else {
             prayButtonIcon.classList.remove('fa-hands-praying');
             prayButtonIcon.classList.add('fa-power-off');
-            prayToggled = false;
             prayButtonIndicator.classList.remove('animated');
             localStorage.setItem('praymode', false);
         }
