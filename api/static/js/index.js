@@ -1,11 +1,17 @@
 document.addEventListener('DOMContentLoaded', function() {
     var body = document.querySelector('body');
+
     var inputContainer = document.querySelector('.form-group');
+
     var prayButton = document.querySelector('.switch-pray');
     var prayButtonIcon = document.querySelector('.switch-pray__icon');
     var prayButtonIndicator = document.querySelector('.switch-pray__indicator');
     var themeButton = document.querySelector('.switch-theme');
     var themeButtonIcon = document.querySelector('.switch-theme__icon');
+
+    var scoreForm = document.getElementById("form");
+
+    var prayContainer = document.querySelector('.pray-container');
 
     function loadTheme() {
         const darkmode = localStorage.getItem('darkmode');
@@ -105,4 +111,16 @@ document.addEventListener('DOMContentLoaded', function() {
             inputElement.value = 0;
         }
     }
+
+    scoreForm.addEventListener('submit', function(event) {
+        event.preventDefault()
+
+        var prayToggled = localStorage.getItem('praymode');
+
+        if (prayToggled == 'false') {
+            this.submit();
+        } else {
+            prayContainer.style.animation = 'zoom 1s forwards';
+        }
+    });
 });

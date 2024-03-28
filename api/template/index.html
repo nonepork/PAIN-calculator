@@ -20,6 +20,9 @@
     <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 </head>
 <body>
+    <div class="pray-container">
+        <span>(WIP)</span>
+    </div>
     <div class="title-text">
         <span>重</span>
         <span>修</span>
@@ -45,7 +48,7 @@
             </div>
         </div>
     </div>
-    <form action="#" method="post">
+    <form id="form" action="#" method="post">
         <div class="form-group">
             <input type="number" name="exam1" step="0.1" min="0" max="100" onkeydown="return event.keyCode !== 69" required>
             <label class="exam1">第一次段考分數</label>
