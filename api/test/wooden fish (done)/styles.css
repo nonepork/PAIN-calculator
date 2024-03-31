@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div {
+    position: absolute;
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    width: 95%;
+    height: 95%;
+    transform: translate(-50%, -50%) scale(1);
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 100;
+}
+
+button.start,
+button.wooden_fish {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.4);
+    border: 0px;
+    padding: 10px;
+    background-color: transparent;
+    z-index: 2;
+}
+
+button.wooden_fish {
+    z-index: 1;
+}
+
+img.stick {
+    position: relative;
+    transform-origin: bottom center;
+    top: -180px;
+    left: 130px;
+    transform: scale(0.6);
+}
+
+img.animated {
+    animation: spin 0.1s;
+}
+
+@keyframes spin {
+    0% {
+        transform: scale(0.6) rotate(0deg);
+    }
+    50% {
+        transform: scale(0.6) rotate(-30deg);
+    }
+    100% {
+        transform: scale(0.6) rotate(0deg);
+    }
+}

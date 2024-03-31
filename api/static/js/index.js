@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     themeButton.addEventListener('click', function() {
         body.classList.toggle('darkmode')
+        themeButtonIcon.classList.remove('animated');
         themeButtonIcon.classList.add('animated');
 
         if (body.classList.contains('darkmode')) {

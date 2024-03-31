@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reisu</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <canvas id="charm_paper"></canvas>
+        <div class="drawing_toolbar">
+            <button id="undo_canvas" type="button">撤 銷</button>
+            <button id="clear_canvas" type="button">清 除</button>
+
+            <input type="color" class="color_picker">
+            <input type="range" orient="vertical" min="1" max="30" value="2" class="pen_size">
+
+            <button class="done"></button>
+        </div>
+    </div>
+</body>
+</html>
