@@ -32,9 +32,137 @@ div.sutra {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 100px;
-    height: 100px;
-    background-color: yellow;
+    width: 800px;
+    height: 700px;
+    border: 12px #7e4f00 solid;
     transform: translate(-50%, -50%);
-    /* outline brown, 3 div in this sutra, 2 corgi and 1 paper */
+}
+
+div.corgi-container {
+    text-align: left;
+    height: 90px;
+    width: 800px;
+}
+
+.sutra img.corgi1 { /* I'm really sorry */
+    position: relative;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.sutra img.paper {
+    position: relative;
+    width: 800px;
+    height: 520px;
+}
+
+.sutra img.corgi2 {
+    position: relative;
+    top: -4px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.sutra-typing-area {
+    font-family: "標楷體";
+    font-size: 48px;
+    position: absolute;
+    top: 90px;
+    left: 125px;
+    z-index: 1;
+    border: 1px #dacfb7 solid;
+    height: 520px;
+    width: 550px;
+    background-color: #fbf0e6;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    overflow: hidden;
+}
+
+.sutra-typing-area:focus {
+    outline: 0;
+}
+
+.sutra-typing-area #words {
+    color: #666;
+    transition: opacity 0.25s;
+    opacity: .5;
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
+}
+
+.sutra-typing-area:focus #words {
+    transition: opacity 0s;
+    opacity: 1;
+    filter: blur(0);
+    -webkit-filter: blur(0);
+}
+
+.sutra-typing-area #not-focusing {
+    font-family: "Roboto Mono", monospace;
+    writing-mode: horizontal-tb;
+    font-size: 20px;
+    position: absolute;
+    text-align: center;
+    padding-top: 240px;
+    inset: 0;
+}
+
+.sutra-typing-area:focus #not-focusing {
+    display: none;
+}
+
+.sutra-typing-area div#words {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.sutra-typing-area div.word {
+    display: inline-block;
+    margin: 10px 0;
+}
+
+.letter.correct {
+    color: black;
+}
+
+.letter.incorrect {
+    color: #ca4754;
+}
+
+.letter.extra {
+    color: #7e2a33;
+    opacity: 0.75;
+}
+
+/*
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+*/
+
+#cursor {
+    display: none;
+    width: 3.5rem;
+    height: 2px;
+    background: black;
+    position: fixed;
+    top: 110px;
+    left: 600px;
+    transition: top 0.1s;
+    /* animation: blink 1s infinite; */
+}
+
+.sutra-typing-area:focus #cursor {
+    display: block;
 }
