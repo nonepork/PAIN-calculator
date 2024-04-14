@@ -20,6 +20,12 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.letter').classList.add('current');
     }
 
+    document.getElementById('wordsInput').addEventListener('input', e => { // just work on check if letter right, skip to next one first, and yes there's no "current" class in letter
+        const value = e.target.value
+        const currentWord = document.querySelector('.word.current');
+        const expected = currentLetter?.innerHTML || ' ';
+    });
+
     document.querySelector('.sutra-typing-area').addEventListener('keydown', ev => {// TODO: change this to detect using wordsInput like monkeytype
         const key = ev.key;
         const currentWord = document.querySelector('.word.current');
@@ -91,32 +97,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // scroll lines
 
-        if (currentWord.getBoundingClientRect().left - parentDiv.getBoundingClientRect().left < 200) {
+        if (currentWord.getBoundingClientRect().left - parentDiv.getBoundingClientRect().left < 50) {
             const words = document.getElementById('words');
-            words.style.marginRight = '-45px'; // TODO: yeah
+            const margin = parseInt(words.style.marginRight || '0px');
+            words.style.marginRight = (margin - 460) + 'px';
         }
 
         // move cursor
 
-        // TODO: fix this mess
         const nextLetter = document.querySelector('.letter.current');
         const nextWord = document.querySelector('.word.current');
         const cursor = document.getElementById('cursor');
         cursor.style.opacity = 1;
         // cursor.style.animationPlayState = 'paused';
         if (nextLetter) {
-            cursor.style.top = nextLetter.getBoundingClientRect().top - 105 + 'px';
-            cursor.style.left = nextLetter.getBoundingClientRect().left - parentDiv.getBoundingClientRect().left + 122 + 'px';
+            cursor.style.top = nextLetter.getBoundingClientRect().top - parentDiv.getBoundingClientRect().top + 'px';
+            cursor.style.left = nextLetter.getBoundingClientRect().left - parentDiv.getBoundingClientRect().left - 2 + 'px';
         } else {
-            cursor.style.top = nextWord.getBoundingClientRect().bottom - 100 + 'px';
-            cursor.style.left = nextWord.getBoundingClientRect().left - parentDiv.getBoundingClientRect().left + 127 + 'px';
+            cursor.style.top = nextWord.getBoundingClientRect().bottom - parentDiv.getBoundingClientRect().top + 'px';
+            cursor.style.left = nextWord.getBoundingClientRect().left - parentDiv.getBoundingClientRect().left + 3 + 'px';
         }
         // cursor.style.animationPlayState = 'running';
     });
 
     newGame();
 
+    const parentDiv = document.querySelector('.sutra-typing-area');
     const nextLetter = document.querySelector('.letter.current');
     const cursor = document.getElementById('cursor');
-    cursor.style.top = nextLetter.getBoundingClientRect().top - 110 + 'px';
+    cursor.style.top = nextLetter.getBoundingClientRect().top - parentDiv.getBoundingClientRect().top - 10 + 'px'; // TODO: fix this
 });
