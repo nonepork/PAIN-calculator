@@ -1,7 +1,7 @@
 questions:
+figure out how to let input active when clicking on the entire thing
 where does monkeytype store its wrong word?
 why not use classList.add?
-figure out how to let input active when clicking on the entire thing
 the inputbox also moves with caret
 
 Idea:

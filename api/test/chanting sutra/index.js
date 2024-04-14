@@ -1,6 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const inputBox = document.getElementById('wordsInput');
+    const sutratypingArea = document.querySelector('.sutra-typing-area');
+    const wordsArea = document.getElementById('words');
+    const outOfFocusArea = document.getElementById('not-focusing');
     const words = 'radal urmoder babushka wotdefok holeesh gta sanandreas cj sosig fat'.split(' ');
     const wordsCount = words.length;
+    const lastTyped = [];
 
     function randomWord() {
         const randomIndex = Math.ceil(Math.random() * wordsCount);
@@ -17,113 +22,96 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('words').innerHTML += formatWord(randomWord());
         }
         document.querySelector('.word').classList.add('current');
-        document.querySelector('.letter').classList.add('current');
     }
 
-    document.getElementById('wordsInput').addEventListener('input', e => { // just work on check if letter right, skip to next one first, and yes there's no "current" class in letter
-        const value = e.target.value
+    function checkIfFocusedInput() {
+        if (inputBox !== document.activeElement) {
+            inputBox.focus();
+        }
+    }
+
+    inputBox.addEventListener('keydown', e => { // WARN: Incredibly buggy now.
         const currentWord = document.querySelector('.word.current');
-        const expected = currentLetter?.innerHTML || ' ';
+        const currentLetters = currentWord.getElementsByTagName('span');
+        const isFirstLetter = currentLetters[inputBox.value.length - 1] === currentWord.firstChild;
+        if (e.key === ' ') {
+            if (inputBox.value) {
+                lastTyped.push(inputBox.value);
+            } else {
+                lastTyped.push('');
+            }
+            inputBox.value = '';
+            const lettersToInvalidate = [...document.querySelectorAll('.word.current span:not(.correct)')];
+            lettersToInvalidate.forEach(letter => {
+                letter.classList.add('incorrect');
+            });
+            currentWord.classList.remove('current')
+            currentWord.nextSibling.classList.add('current');
+            e.preventDefault();
+        } else if (e.key === 'Backspace') {
+            if (currentLetters[inputBox.value.length-1] && isFirstLetter) {
+                if (currentWord != currentWord.parentNode.firstElementChild) {
+                    currentWord.classList.remove('current');
+                    currentWord.previousSibling.classList.add('current');
+                }
+                currentLetters[inputBox.value.length - 1].classList.remove('incorrect');
+                currentLetters[inputBox.value.length - 1].classList.remove('correct');
+                inputBox.value = lastTyped[lastTyped.length - 1] || '';
+                lastTyped.pop();
+            }
+            if (currentLetters[inputBox.value.length-1] && !isFirstLetter) {
+                currentLetters[inputBox.value.length - 1].classList.remove('incorrect');
+                currentLetters[inputBox.value.length - 1].classList.remove('correct');
+            }
+            if (!currentLetters[inputBox.value.length-1]) {
+                if (currentWord != currentWord.parentNode.firstElementChild) {
+                    currentWord.classList.remove('current');
+                    currentWord.previousSibling.classList.add('current');
+                }
+                inputBox.value = lastTyped[lastTyped.length - 1] || '';
+                lastTyped.pop();
+                e.preventDefault();
+            }
+        }
     });
 
-    document.querySelector('.sutra-typing-area').addEventListener('keydown', ev => {// TODO: change this to detect using wordsInput like monkeytype
-        const key = ev.key;
+    inputBox.addEventListener('input', e => {
+        const value = e.target.value;
         const currentWord = document.querySelector('.word.current');
-        const currentLetter = document.querySelector('.letter.current');
-        const expected = currentLetter?.innerHTML || ' ';
-        const isLetter = key.length === 1 && key !== ' ';
-        const isSpace = key === ' ';
-        const isBackspace = key === 'Backspace';
-        const isFirstLetter = currentLetter === currentWord.firstChild;
-        const parentDiv = document.querySelector('.sutra-typing-area');
-
-        // key handling
-
-        if (isLetter) {
-            if (currentLetter) {
-                currentLetter.classList.add(key === expected ? 'correct' : 'incorrect')
-                currentLetter.classList.remove('current');
-                if (currentLetter.nextSibling) {
-                    currentLetter.nextSibling.classList.add('current');
-                }
-            } else {
-                const incorrectLetter = document.createElement('span');
-                incorrectLetter.innerHTML = key;
-                incorrectLetter.className = 'letter extra';
+        const currentLetters = currentWord.getElementsByTagName('span');
+        for (var i = 0; i < value.length; i++) {
+            if (i >= currentLetters.length) {
+                var incorrectLetter = document.createElement('span');
+                incorrectLetter.innerHTML = value[i];
+                incorrectLetter.className = 'letter incorrect extra';
                 currentWord.appendChild(incorrectLetter);
+            } else if (currentLetters[i] && currentLetters[i].textContent === value[i]) {
+                currentLetters[i].classList.add('correct');
+            } else {
+                currentLetters[i].classList.add('incorrect');
             }
         }
-
-        if (isSpace) {
-            if (expected !== ' ') {
-                const lettersToInvalidate = [...document.querySelectorAll('.word.current .letter:not(.correct)')];
-                lettersToInvalidate.forEach(letter => {
-                    letter.classList.add('incorrect');
-                });
-            }
-            currentWord.classList.remove('current');
-            currentWord.nextSibling.classList.add('current');
-            if (currentLetter) {
-                currentLetter.classList.remove('current');
-            }
-            currentWord.nextSibling.firstChild.classList.add('current');
-        }
-
-        if (isBackspace) {
-            if (currentLetter && isFirstLetter) {
-                currentWord.classList.remove('current');
-                currentWord.previousSibling.classList.add('current');
-                currentLetter.classList.remove('current');
-                currentWord.previousSibling.lastChild.classList.add('current');
-                currentWord.previousSibling.lastChild.classList.remove('incorrect');
-                currentWord.previousSibling.lastChild.classList.remove('correct');
-            }
-            if (currentLetter && !isFirstLetter) { 
-                currentLetter.classList.remove('current');
-                currentLetter.previousSibling.classList.add('current');
-                currentLetter.previousSibling.classList.remove('incorrect');
-                currentLetter.previousSibling.classList.remove('correct');
-            }
-            if (!currentLetter) {
-                if (currentWord.lastChild.classList.contains('extra')) {
-                    currentWord.lastChild.remove();
-                } else {
-                    currentWord.lastChild.classList.add('current');
-                    currentWord.lastChild.classList.remove('incorrect');
-                    currentWord.lastChild.classList.remove('correct');
-                }
-            }
-        }
-
-        // scroll lines
-
-        if (currentWord.getBoundingClientRect().left - parentDiv.getBoundingClientRect().left < 50) {
-            const words = document.getElementById('words');
-            const margin = parseInt(words.style.marginRight || '0px');
-            words.style.marginRight = (margin - 460) + 'px';
-        }
-
-        // move cursor
-
-        const nextLetter = document.querySelector('.letter.current');
-        const nextWord = document.querySelector('.word.current');
-        const cursor = document.getElementById('cursor');
-        cursor.style.opacity = 1;
-        // cursor.style.animationPlayState = 'paused';
-        if (nextLetter) {
-            cursor.style.top = nextLetter.getBoundingClientRect().top - parentDiv.getBoundingClientRect().top + 'px';
-            cursor.style.left = nextLetter.getBoundingClientRect().left - parentDiv.getBoundingClientRect().left - 2 + 'px';
-        } else {
-            cursor.style.top = nextWord.getBoundingClientRect().bottom - parentDiv.getBoundingClientRect().top + 'px';
-            cursor.style.left = nextWord.getBoundingClientRect().left - parentDiv.getBoundingClientRect().left + 3 + 'px';
-        }
-        // cursor.style.animationPlayState = 'running';
     });
 
     newGame();
 
-    const parentDiv = document.querySelector('.sutra-typing-area');
-    const nextLetter = document.querySelector('.letter.current');
-    const cursor = document.getElementById('cursor');
-    cursor.style.top = nextLetter.getBoundingClientRect().top - parentDiv.getBoundingClientRect().top - 10 + 'px'; // TODO: fix this
+    sutratypingArea.addEventListener('click', () => { // TODO: Add press any key to focus
+        checkIfFocusedInput();
+    });
+
+    inputBox.addEventListener('focus', () => { // TODO: change inputBox's event to function, then add them to here for better focus.
+        document.removeEventListener('keydown', checkIfFocusedInput);
+        wordsArea.style.transition = "0s";
+        wordsArea.classList.add('focus');
+        outOfFocusArea.classList.add('focus');
+    });
+
+    inputBox.addEventListener('focusout', () => {
+        document.addEventListener('keydown', checkIfFocusedInput);
+        setTimeout(function() {
+            wordsArea.style.transition = "0.25s";
+            wordsArea.classList.remove('focus');
+            outOfFocusArea.classList.remove('focus');
+        }, 1000);
+    });
 });

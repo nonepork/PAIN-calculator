@@ -65,7 +65,6 @@ div.corgi-container {
     object-fit: cover;
 }
 
-/*
 .sutra #wordsInput {
     opacity: 0;
     padding: 0;
@@ -79,7 +78,6 @@ div.corgi-container {
     cursor: default;
     pointer-events: none
 }
-*/
 
 .sutra-typing-area {
     font-family: "標楷體";
@@ -97,19 +95,25 @@ div.corgi-container {
     overflow: hidden;
 }
 
-.sutra-typing-area:focus {
+.sutra-typing-area.focus {
     outline: 0;
 }
 
 .sutra-typing-area #words {
     color: #666;
-    transition: opacity 0.25s;
     opacity: .5;
     filter: blur(4px);
     -webkit-filter: blur(4px);
+    pointer-events: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-.sutra-typing-area:focus #words {
+.sutra-typing-area #words.focus {
     transition: opacity 0s;
     opacity: 1;
     filter: blur(0);
@@ -124,9 +128,16 @@ div.corgi-container {
     text-align: center;
     padding-top: 240px;
     inset: 0;
+    pointer-events: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-.sutra-typing-area:focus #not-focusing {
+.sutra-typing-area #not-focusing.focus {
     display: none;
 }
 
