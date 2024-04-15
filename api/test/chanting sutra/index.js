@@ -1,3 +1,7 @@
+// TODO: 
+// Fix when focusing with key, don't input into inputbox
+// Fix when click twice on sutra-typing-area it defocused although its still focused
+// fix keydown event listener
 document.addEventListener('DOMContentLoaded', function() {
     const inputBox = document.getElementById('wordsInput');
     const sutratypingArea = document.querySelector('.sutra-typing-area');
@@ -76,6 +80,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     inputBox.addEventListener('input', e => {
+        if (inputBox !== document.activeElement) {
+            e.preventDefault();
+        }
         const value = e.target.value;
         const currentWord = document.querySelector('.word.current');
         const currentLetters = currentWord.getElementsByTagName('span');
@@ -95,7 +102,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     newGame();
 
-    sutratypingArea.addEventListener('click', () => { // TODO: Add press any key to focus
+    sutratypingArea.addEventListener('click', e => { // NOTE: check what is being focused when clicked, maybe its because the program quickly
+        e.preventDefault();                          // focused to sutratypingarea so it triggered focusout, but then quickly focused on inputbox as well
         checkIfFocusedInput();
     });
 
