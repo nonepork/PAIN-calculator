@@ -1,6 +1,5 @@
 // TODO: 
 // Fix when focusing with key, don't input into inputbox
-// Fix when click twice on sutra-typing-area it defocused although its still focused
 // fix keydown event listener
 document.addEventListener('DOMContentLoaded', function() {
     const inputBox = document.getElementById('wordsInput');
@@ -9,7 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const outOfFocusArea = document.getElementById('not-focusing');
     const words = 'radal urmoder babushka wotdefok holeesh gta sanandreas cj sosig fat'.split(' ');
     const wordsCount = words.length;
-    const lastTyped = [];
+    var lastTyped = [];
+    var boxIsClicked = false;
 
     function randomWord() {
         const randomIndex = Math.ceil(Math.random() * wordsCount);
@@ -102,8 +102,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     newGame();
 
-    sutratypingArea.addEventListener('click', e => { // NOTE: check what is being focused when clicked, maybe its because the program quickly
-        e.preventDefault();                          // focused to sutratypingarea so it triggered focusout, but then quickly focused on inputbox as well
+    sutratypingArea.addEventListener('click', e => {
+        boxIsClicked = true;
+        e.preventDefault();
         checkIfFocusedInput();
     });
 
@@ -115,11 +116,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     inputBox.addEventListener('focusout', () => {
-        document.addEventListener('keydown', checkIfFocusedInput);
-        setTimeout(function() {
-            wordsArea.style.transition = "0.25s";
-            wordsArea.classList.remove('focus');
-            outOfFocusArea.classList.remove('focus');
-        }, 1000);
+        if (!boxIsClicked) {
+            document.addEventListener('keydown', checkIfFocusedInput);
+            setTimeout(function() {
+                wordsArea.style.transition = "0.25s";
+                wordsArea.classList.remove('focus');
+                outOfFocusArea.classList.remove('focus');
+            }, 1000);
+        } else {
+            boxIsClicked = false;
+        }
     });
+
+    checkIfFocusedInput();
+    sutratypingArea.focus() // I'm sorry xD
 });

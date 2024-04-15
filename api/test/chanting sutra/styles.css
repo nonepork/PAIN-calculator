@@ -93,9 +93,6 @@ div.corgi-container {
     writing-mode: vertical-rl;
     text-orientation: upright;
     overflow: hidden;
-}
-
-.sutra-typing-area.focus {
     outline: 0;
 }
 
