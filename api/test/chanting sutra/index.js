@@ -1,6 +1,5 @@
-// TODO: 
-// Fix when focusing with key, don't input into inputbox
-// fix keydown event listener
+// TODO:
+// I remove the entire focusing function cuz i'm losing my mind
 document.addEventListener('DOMContentLoaded', function() {
     const inputBox = document.getElementById('wordsInput');
     const sutratypingArea = document.querySelector('.sutra-typing-area');
@@ -9,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const words = 'radal urmoder babushka wotdefok holeesh gta sanandreas cj sosig fat'.split(' ');
     const wordsCount = words.length;
     var lastTyped = [];
-    var boxIsClicked = false;
 
     function randomWord() {
         const randomIndex = Math.ceil(Math.random() * wordsCount);
@@ -26,12 +24,6 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('words').innerHTML += formatWord(randomWord());
         }
         document.querySelector('.word').classList.add('current');
-    }
-
-    function checkIfFocusedInput() {
-        if (inputBox !== document.activeElement) {
-            inputBox.focus();
-        }
     }
 
     inputBox.addEventListener('keydown', e => { // WARN: Incredibly buggy now.
@@ -102,32 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     newGame();
 
-    sutratypingArea.addEventListener('click', e => {
-        boxIsClicked = true;
-        e.preventDefault();
-        checkIfFocusedInput();
+    sutratypingArea.addEventListener('click', () => {
+        inputBox.focus();
     });
-
-    inputBox.addEventListener('focus', () => { // TODO: change inputBox's event to function, then add them to here for better focus.
-        document.removeEventListener('keydown', checkIfFocusedInput);
-        wordsArea.style.transition = "0s";
-        wordsArea.classList.add('focus');
-        outOfFocusArea.classList.add('focus');
-    });
-
-    inputBox.addEventListener('focusout', () => {
-        if (!boxIsClicked) {
-            document.addEventListener('keydown', checkIfFocusedInput);
-            setTimeout(function() {
-                wordsArea.style.transition = "0.25s";
-                wordsArea.classList.remove('focus');
-                outOfFocusArea.classList.remove('focus');
-            }, 1000);
-        } else {
-            boxIsClicked = false;
-        }
-    });
-
-    checkIfFocusedInput();
-    sutratypingArea.focus() // I'm sorry xD
 });

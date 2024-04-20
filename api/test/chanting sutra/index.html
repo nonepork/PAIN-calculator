@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="index.js"></script>
 </head>
 <body>
@@ -22,10 +23,10 @@
                 <img class="corgi2" src="chanting sutra corgi.png">
             </div>
             <input id="wordsInput" class="" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false" list="autocompleteOff" spellcheck="false" style="left: 0px; top: 96px;">
-            <div class="sutra-typing-area" tabindex="0">
+            <div class="sutra-typing-area" tabindex="-1">
                 <div id="words"></div>
                 <div id="cursor"></div>
-                <div id="not-focusing">Click here or press any key to focus</div>
+                <!-- Disabled due to techincal issue <div id="not-focusing">Click here or press any key to focus</div> -->
             </div>
         </div>
     </div>

@@ -98,6 +98,19 @@ div.corgi-container {
 
 .sutra-typing-area #words {
     color: #666;
+    opacity: 1;
+    pointer-events: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/*
+.sutra-typing-area #words {
+    color: #666;
     opacity: .5;
     filter: blur(4px);
     -webkit-filter: blur(4px);
@@ -133,6 +146,7 @@ div.corgi-container {
     -ms-user-select: none;
     user-select: none;
 }
+*/
 
 .sutra-typing-area #not-focusing.focus {
     display: none;
