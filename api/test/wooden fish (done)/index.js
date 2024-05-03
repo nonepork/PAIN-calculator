@@ -50,15 +50,15 @@ document.addEventListener('DOMContentLoaded', function() {
         fish.addEventListener('click', fishClicked);
         fish.click();
 
-        var timeleft = 1;
-        var downloadTimer = setInterval(function() {
-            if (timeleft === 10) {
-                fish.removeEventListener('click', fishClicked);
-                clearInterval(downloadTimer);
-                var cps = clickCount/10;
-                console.log(cps);
-            }
-            timeleft++;
-        }, 1000);
+        //var timeleft = 1;
+        //var downloadTimer = setInterval(function() {
+        //    if (timeleft === 10) {
+        //        fish.removeEventListener('click', fishClicked);
+        //        clearInterval(downloadTimer);
+        //        var cps = clickCount/10;
+        //        console.log(cps);
+        //    }
+        //    timeleft++;
+        //}, 1000);
     });
 });
