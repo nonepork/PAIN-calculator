@@ -29,6 +29,21 @@ body {
     font-size: 48px;
 }
 
+.pray-container button {
+    background-color: transparent;
+    outline: none;
+    border: 0px;
+    overflow: hidden;
+    width: 300px;
+    height: 300px;
+}
+
+.pray-container button img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
 @supports (backdrop-filter: none) {
     .pray-container {
         background: rgba(0, 0, 0, 0.3);

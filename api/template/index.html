@@ -21,9 +21,8 @@
 </head>
 <body>
     <div class="pray-container">
-            <button id="wooden-fish-gamebtn"></button>
-            <button id="charm-paper-gamebtn"></button>
-            <span>Still WIP, sorry :p</span>
+        <button id="wooden-fish-gamebtn"><img src="{{ url_for('static', filename='assets/wooden fish icon.png') }}" /></button>
+        <button id="charm-paper-gamebtn"><img src="{{ url_for('static', filename='assets/charm paper icon.png') }}" /></button>
     </div>
     <div class="title-text">
         <span>重</span>
@@ -52,16 +51,16 @@
     </div>
     <form id="form" action="#" method="post">
         <div class="form-group">
-            <input type="number" name="exam1" step="0.1" min="0" max="100" onkeydown="return event.keyCode !== 69" required>
+            <input type="number" name="exam1" step="0.1" min="0" max="100" onkeydown="return event.keyCode !== 69" > <!-- required needs to be added back -->
             <label class="exam1">第一次段考分數</label>
             <span class="exam1"></span>
-            <input type="number" name="exam2" step="0.1" min="0" max="100" onkeydown="return event.keyCode !== 69" required>
+            <input type="number" name="exam2" step="0.1" min="0" max="100" onkeydown="return event.keyCode !== 69" > <!-- required needs to be added back -->
             <label class="exam2">第二次段考分數</label>
             <span class="exam2"></span>
-            <input type="number" name="exam3" step="0.1" min="0" max="100" onkeydown="return event.keyCode !== 69" required>
+            <input type="number" name="exam3" step="0.1" min="0" max="100" onkeydown="return event.keyCode !== 69" > <!-- required needs to be added back -->
             <label class="exam3">第三次段考分數</label>
             <span class="exam3"></span>
-            <input type="number" name="teachersmood" step="0.1" min="0" max="100" onkeydown="return event.keyCode !== 69" required>
+            <input type="number" name="teachersmood" step="0.1" min="0" max="100" onkeydown="return event.keyCode !== 69" > <!-- required needs to be added back -->
             <label class="teachersmood">平時成績(老師心情)</label>
             <span class="teachersmood"></span>
             <button type="submit" class="submit">計算</button>
