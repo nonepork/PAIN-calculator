@@ -21,8 +21,14 @@
 </head>
 <body>
     <div class="pray-container">
-        <button id="wooden-fish-gamebtn"><img src="{{ url_for('static', filename='assets/wooden fish icon.png') }}" /></button>
-        <button id="charm-paper-gamebtn"><img src="{{ url_for('static', filename='assets/charm paper icon.png') }}" /></button>
+        <button id="wooden-fish-gamebtn">
+            <img src="{{ url_for('static', filename='assets/wooden fish icon.png') }}" />
+            <img id="shadow" src="{{ url_for('static', filename='assets/wooden fish icon.png') }}" />
+        </button>
+        <button id="charm-paper-gamebtn">
+            <img src="{{ url_for('static', filename='assets/charm paper icon.png') }}" />
+            <img id="shadow" src="{{ url_for('static', filename='assets/charm paper icon.png') }}" />
+        </button>
     </div>
     <div class="title-text">
         <span>重</span>
