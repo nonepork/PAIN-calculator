@@ -127,10 +127,47 @@ document.addEventListener("DOMContentLoaded", function () {
 
       woodenFishGameBtn.addEventListener("click", function woodenTrigger() {
         woodenFishClickArea = document.getElementById("woodenFishClickArea");
+        woodenFish = document.querySelector(".woodenFish")
+        woodenFishStart = document.querySelector(".woodenFishStart")
+        woodenFishStick = document.querySelector(".woodenFishStick")
         woodenFishGameBtn.style.display = "none";
         charmPaperGameBtn.style.display = "none";
         woodenFishGameBtn.removeEventListener("click", woodenTrigger)
         woodenFishClickArea.style.display = '';
+
+        woodenFishStart.addEventListener('click', () => {
+            woodenFishStart.style.display = 'none';
+            woodenFishStart.removeEventListener('click', arguments.callee);
+            console.log('始める!');
+
+            var clickCount = 0;
+            function fishClicked() {
+                woodenFishStick.classList.remove('animated');
+                woodenFishStick.classList.add('animated');
+
+                // punya();
+
+                // new Audio('wooden fish sound.mp3').play();
+                clickCount++;
+
+                animationTimeout = setTimeout( () => {
+                    woodenFishStick.classList.remove('animated');
+                }, 100)
+            }
+            woodenFish.addEventListener('click', fishClicked);
+            woodenFish.click();
+
+            //var timeleft = 1;
+            //var downloadTimer = setInterval(function() {
+            //    if (timeleft === 10) {
+            //        fish.removeEventListener('click', fishClicked);
+            //        clearInterval(downloadTimer);
+            //        var cps = clickCount/10;
+            //        console.log(cps);
+            //    }
+            //    timeleft++;
+            //}, 1000);
+        });
       });
 
       charmPaperGameBtn.addEventListener("click", function charmTrigger() {

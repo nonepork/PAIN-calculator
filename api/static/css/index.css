@@ -91,7 +91,7 @@ button.woodenFish {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(1.2);
+    transform: translate(-50%, -50%) scale(1.9);
     border: 0px;
     padding: 10px;
     background-color: transparent;
@@ -108,22 +108,19 @@ img.woodenFishStick {
     transform-origin: bottom center;
     top: -180px;
     left: 130px;
-    transform: scale(0.6);
+    transform: rotate(0deg) scale(0.6); /* TODO: fix this */
 }
 
-img.animated {
+.woodenFishStick.animated {
     animation: spin 0.1s;
 }
 
 @keyframes spin {
-    0% {
-        transform: scale(0.6) rotate(0deg);
+    0%, 100% {
+        transform: rotate(0deg) scale(0.6);
     }
     50% {
-        transform: scale(0.6) rotate(-30deg);
-    }
-    100% {
-        transform: scale(0.6) rotate(0deg);
+        transform: rotate(-30deg) scale(0.6);
     }
 }
 
