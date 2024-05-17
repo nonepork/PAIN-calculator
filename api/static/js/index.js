@@ -126,16 +126,16 @@ document.addEventListener("DOMContentLoaded", function () {
       charmPaperGameBtn = document.getElementById("charm-paper-gamebtn");
 
       woodenFishGameBtn.addEventListener("click", function woodenTrigger() {
+        woodenFishClickArea = document.getElementById("woodenFishClickArea");
         woodenFishGameBtn.style.display = "none";
         charmPaperGameBtn.style.display = "none";
         woodenFishGameBtn.removeEventListener("click", woodenTrigger)
-        charmPaperGameBtn.removeEventListener("click", charmTrigger)
+        woodenFishClickArea.style.display = '';
       });
 
       charmPaperGameBtn.addEventListener("click", function charmTrigger() {
         woodenFishGameBtn.style.display = "none";
         charmPaperGameBtn.style.display = "none";
-        woodenFishGameBtn.removeEventListener("click", woodenTrigger)
         charmPaperGameBtn.removeEventListener("click", charmTrigger)
       });
     }

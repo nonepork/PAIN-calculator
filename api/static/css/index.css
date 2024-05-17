@@ -84,6 +84,69 @@ body {
   }
 }
 
+/* ---------- Pray method wooden fish ---------- */
+
+button.woodenFishStart,
+button.woodenFish {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.2);
+    border: 0px;
+    padding: 10px;
+    background-color: transparent;
+    z-index: 2;
+    cursor: pointer;
+}
+
+button.woodenFish {
+    z-index: 1;
+}
+
+img.woodenFishStick {
+    position: relative;
+    transform-origin: bottom center;
+    top: -180px;
+    left: 130px;
+    transform: scale(0.6);
+}
+
+img.animated {
+    animation: spin 0.1s;
+}
+
+@keyframes spin {
+    0% {
+        transform: scale(0.6) rotate(0deg);
+    }
+    50% {
+        transform: scale(0.6) rotate(-30deg);
+    }
+    100% {
+        transform: scale(0.6) rotate(0deg);
+    }
+}
+
+.woodenFish span {
+    position: absolute;
+    display: inline-block;
+    color: white;
+    font-size: 50px;
+}
+
+@keyframes showandfall {
+    0% {
+        opacity: 1
+    }
+    50% {
+        transform: translateY(60%);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+}
+
 /* ---------- Title text ---------- */
 
 div.title-text {
