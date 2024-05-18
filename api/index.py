@@ -40,6 +40,11 @@ def home():
         return render_template("index.html")
 
 
+@app.route('/test-image')
+def test_image():
+    return app.send_static_file('assets/wooden fish icon.png')
+
+
 @app.route('/robots.txt')
 def robots():
     return send_from_directory(app.static_folder, request.path[1:])
