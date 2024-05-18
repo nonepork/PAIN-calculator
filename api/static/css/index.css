@@ -108,14 +108,14 @@ img.woodenFishStick {
     transform-origin: bottom center;
     top: -180px;
     left: 130px;
-    transform: rotate(0deg) scale(0.6); /* TODO: fix this */
+    transform: scale(0.6);
 }
 
 .woodenFishStick.animated {
-    animation: spin 0.1s;
+    animation: stickSpin 0.1s;
 }
 
-@keyframes spin {
+@keyframes stickSpin {
     0%, 100% {
         transform: rotate(0deg) scale(0.6);
     }
