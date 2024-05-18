@@ -271,10 +271,10 @@ div.title-text {
 }
 
 .switch-theme__icon.animated {
-  animation: spin 0.5s;
+  animation: buttonIconSpin 0.5s;
 }
 
-@keyframes spin {
+@keyframes buttonIconSpin {
   to {
     transform: rotate(360deg);
   }
