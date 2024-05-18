@@ -126,14 +126,43 @@ document.addEventListener("DOMContentLoaded", function () {
       charmPaperGameBtn = document.getElementById("charm-paper-gamebtn");
 
       woodenFishGameBtn.addEventListener("click", function woodenTrigger() {
-        woodenFishClickArea = document.getElementById("woodenFishClickArea");
-        woodenFish = document.querySelector(".woodenFish")
-        woodenFishStart = document.querySelector(".woodenFishStart")
-        woodenFishStick = document.querySelector(".woodenFishStick")
+        var woodenFishClickArea = document.getElementById("woodenFishClickArea");
+        var woodenFish = document.querySelector(".woodenFish")
+        var woodenFishStart = document.querySelector(".woodenFishStart")
+        var woodenFishStick = document.querySelector(".woodenFishStick")
+        var audioUrl = document.getElementById('audioContainer').dataset.audioUrl;
         woodenFishGameBtn.style.display = "none";
         charmPaperGameBtn.style.display = "none";
         woodenFishGameBtn.removeEventListener("click", woodenTrigger)
         woodenFishClickArea.style.display = '';
+
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function punya() {
+            var rn = getRandomInt(1, 6);
+            if (rn === 1) {
+                var span = document.createElement('span');
+                span.textContent = '功德+1';
+
+                woodenFish.appendChild(span);
+
+                span.tabIndex = -1;
+                span.style.zIndex = 10;
+                span.style.animation = 'showandfall 2s forwards';
+                span.style.fontSize = '10px';
+                // Don't change, a mess
+                span.style.top = getRandomInt(0, 100).toString() + 'px';
+                span.style.left = getRandomInt(0, 250).toString() + 'px';
+
+                span.addEventListener('animationend', function() {
+                    span.remove();
+                });
+            }
+        }
 
         woodenFishStart.addEventListener('click', () => {
             woodenFishStart.style.display = 'none';
@@ -145,9 +174,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 woodenFishStick.classList.remove('animated');
                 woodenFishStick.classList.add('animated');
 
-                // punya();
+                punya();
 
-                // new Audio('wooden fish sound.mp3').play();
+                new Audio(audioUrl).play();
                 clickCount++;
 
                 animationTimeout = setTimeout( () => {

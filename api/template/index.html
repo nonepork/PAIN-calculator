@@ -31,9 +31,24 @@
         </button>
 
         <div id="woodenFishClickArea" style="display: none">
+            <div id="audioContainer" data-audio-url="{{ url_for('static', filename='assets/wooden fish sound.mp3') }}"></div>
             <button class="woodenFishStart"><img src="{{ url_for('static', filename='assets/wooden fish.png') }}" draggable="false"></button>
             <button class="woodenFish"><img src="{{ url_for('static', filename='assets/wooden fish.png') }}" draggable="false"></button>
             <img class="woodenFishStick" src="{{ url_for('static', filename='assets/wooden fish stick.png') }}" draggable="false"">
+        </div>
+
+
+        <div class="charmPaperDrawingArea" style="display: none"><!-- TODO: make this work -->
+            <canvas id="charm_paper"></canvas>
+            <div class="drawing_toolbar">
+                <button id="undo_canvas" type="button">撤 銷</button>
+                <button id="clear_canvas" type="button">清 除</button>
+
+                <input type="color" class="color_picker">
+                <input type="range" orient="vertical" min="1" max="30" value="2" class="pen_size">
+
+                <button class="done"></button>
+            </div>
         </div>
     </div>
     <div class="title-text">

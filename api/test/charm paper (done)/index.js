@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var container = document.querySelector('.container');
+    var charmPaperDrawingArea = document.querySelector('.charmPaperDrawingArea');
     var charmCanvas = document.getElementById('charm_paper');
     var clearButton = document.getElementById('clear_canvas');
     var undoButton = document.getElementById('undo_canvas');
     var pensizeSlider = document.querySelector('.pen_size');
     var colorPicker = document.querySelector('.color_picker');
     charmCanvas.width = 290;
-    charmCanvas.height = container.clientHeight - 130;
+    charmCanvas.height = charmPaperDrawingArea.clientHeight - 130;
 
     // Drawing
 

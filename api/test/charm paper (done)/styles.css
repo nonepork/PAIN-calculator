@@ -5,7 +5,7 @@ body {
     align-items: center;
 }
 
-div.container {
+div.charmPaperDrawingArea {
     position: absolute;
     border-radius: 10px;
     top: 50%;
@@ -22,7 +22,7 @@ div.container {
 }
 
 @supports (backdrop-filter: none) {
-    div.container {
+    div.charmPaperDrawingArea {
         background: rgba(0, 0, 0, 0.3);
         backdrop-filter: blur(8px);
     }
