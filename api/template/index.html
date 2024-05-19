@@ -18,6 +18,7 @@
 
     <!-- Javascript -->
     <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
     <div class="pray-container">
@@ -32,13 +33,14 @@
 
         <div id="woodenFishClickArea" style="display: none">
             <div id="audioContainer" data-audio-url="{{ url_for('static', filename='assets/woodenfishsound.mp3') }}"></div>
+            <span id="fishIntroduction">計時十秒, 請用你最快的速度點這顆木魚</span>
             <button class="woodenFishStart"><img src="{{ url_for('static', filename='assets/woodenfish.png') }}" draggable="false"></button>
             <button class="woodenFish"><img src="{{ url_for('static', filename='assets/woodenfish.png') }}" draggable="false"></button>
             <img class="woodenFishStick" src="{{ url_for('static', filename='assets/woodenfishstick.png') }}" draggable="false"">
         </div>
 
 
-        <div class="charmPaperDrawingArea" style="display: none"><!-- TODO: make this work -->
+        <div class="charmPaperDrawingArea" style="display: none">
             <canvas id="charm_paper"></canvas>
             <div class="drawing_toolbar">
                 <button id="undo_canvas" type="button">撤 銷</button>
