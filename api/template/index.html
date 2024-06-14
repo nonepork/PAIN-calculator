@@ -52,6 +52,10 @@
                 <button class="done"></button>
             </div>
         </div>
+
+        <div class="finalScoreArea" style="display: none">
+            <span class="finalScoreArea"></span>
+        </div>
     </div>
     <div class="title-text">
         <span>重</span>
@@ -80,16 +84,16 @@
     </div>
     <form id="form" action="#" method="post">
         <div class="form-group">
-            <input type="number" name="exam1" step="0.1" min="0" max="100" onkeydown="return event.keyCode !== 69" > <!-- required needs to be added back -->
+            <input type="number" name="exam1" step="0.1" min="0" max="100" onkeydown="return event.keyCode !== 69" required>
             <label class="exam1">第一次段考分數</label>
             <span class="exam1"></span>
-            <input type="number" name="exam2" step="0.1" min="0" max="100" onkeydown="return event.keyCode !== 69" > <!-- required needs to be added back -->
+            <input type="number" name="exam2" step="0.1" min="0" max="100" onkeydown="return event.keyCode !== 69" required>
             <label class="exam2">第二次段考分數</label>
             <span class="exam2"></span>
-            <input type="number" name="exam3" step="0.1" min="0" max="100" onkeydown="return event.keyCode !== 69" > <!-- required needs to be added back -->
+            <input type="number" name="exam3" step="0.1" min="0" max="100" onkeydown="return event.keyCode !== 69" required>
             <label class="exam3">第三次段考分數</label>
             <span class="exam3"></span>
-            <input type="number" name="teachersmood" step="0.1" min="0" max="100" onkeydown="return event.keyCode !== 69" > <!-- required needs to be added back -->
+            <input type="number" name="teachersmood" step="0.1" min="0" max="100" onkeydown="return event.keyCode !== 69" required>
             <label class="teachersmood">平時成績(老師心情)</label>
             <span class="teachersmood"></span>
             <button type="submit" class="submit">計算</button>

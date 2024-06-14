@@ -2,13 +2,6 @@ import os
 from flask import Flask, request, send_from_directory, render_template
 app = Flask(__name__, static_url_path='', static_folder='./static', template_folder='./template')
 
-# TODO:
-# Add choose your 聖物
-# Make score announcing more funnier
-
-# NOTE:
-# 聖物idea: 木魚(cps test) 念經(typing game) 畫符咒(drawing)
-
 def calculate(exam1: float, exam2: float, exam3: float, teachersmood: float) -> float:
     # How to calculate:
     # Sum first, second and third exams' score, divided by 3 (rounded to integer) and times 0.6

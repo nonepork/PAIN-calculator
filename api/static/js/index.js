@@ -117,10 +117,17 @@ document.addEventListener("DOMContentLoaded", function () {
     event.preventDefault();
 
     var prayToggled = localStorage.getItem("praymode");
+    const finalScoreArea = document.querySelector("div.finalScoreArea");
+    const finalScoreText = document.querySelector("span.finalScoreArea");
 
     if (prayToggled == "false") {
       this.submit();
     } else {
+      test1 = parseInt(document.querySelector('input[name="exam1"]').value);
+      test2 = parseInt(document.querySelector('input[name="exam2"]').value);
+      test3 = parseInt(document.querySelector('input[name="exam3"]').value);
+      test4 = parseInt(document.querySelector('input[name="teachersmood"]').value);
+      let result = Math.round(((test1 + test2 + test3) / 3 * 0.6 + test4 * 0.4) * 10) / 10;;
       prayContainer.style.animation = "zoom 1s forwards";
       woodenFishGameBtn = document.getElementById("wooden-fish-gamebtn");
       charmPaperGameBtn = document.getElementById("charm-paper-gamebtn");
@@ -202,6 +209,9 @@ document.addEventListener("DOMContentLoaded", function () {
               clearInterval(downloadTimer);
               var cps = clickCount / 10;
               console.log(cps);
+              finalScoreArea.style.display = "";
+              woodenFishClickArea.style.display = "none";
+              finalScoreText.innerHTML = `你的CPS為${cps}, 對了你的成績為${result}`;
             }
             timeleft++;
           }, 1000);
@@ -217,6 +227,7 @@ document.addEventListener("DOMContentLoaded", function () {
         var undoButton = document.getElementById("undo_canvas");
         var pensizeSlider = document.querySelector(".pen_size");
         var colorPicker = document.querySelector(".color_picker");
+        var finishButton = document.querySelector("button.done");
         woodenFishGameBtn.style.display = "none";
         charmPaperGameBtn.style.display = "none";
         charmPaperGameBtn.removeEventListener("click", charmTrigger);
@@ -317,6 +328,11 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         colorPicker.addEventListener("input", function () {
           draw_color = this.value;
+        });
+        finishButton.addEventListener("click", function () {
+          charmPaperDrawingArea.style.display = "none";
+          finalScoreArea.style.display = "";
+          finalScoreText.innerHTML = `你祈禱了，你的成績為${result}`;
         });
       });
     }
