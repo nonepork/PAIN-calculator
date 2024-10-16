@@ -1,1 +1,3 @@
-I've learned quite of things from this project, and I felt like I didn't need to continue work on it anymore. :p
+![image](https://github.com/user-attachments/assets/37deb57d-7067-4428-8215-a607e6bc98f2)
+
+A project for testing how to pure css.
